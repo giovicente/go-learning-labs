@@ -43,15 +43,16 @@ func main() {
 func measure(label string, fn func()) {
 	start := time.Now()
 	fn()
-	us := time.Since(start).Microseconds()
+	secs := time.Since(start).Seconds()
 
-	fmt.Printf("%s %dµs\n", label, us)
+	fmt.Printf("%s %.2fs\n", label, secs)
 }
 
 func echoWithFor(args []string) string {
 	var s, sep string
 	for i := 0; i < len(args); i++ {
 		s += sep + args[i]
+		sep = " "
 	}
 
 	return s
@@ -61,6 +62,7 @@ func echoWithRange(args []string) string {
 	var s, sep string
 	for _, arg := range args {
 		s += sep + arg
+		sep = " "
 	}
 
 	return s
