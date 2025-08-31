@@ -49,6 +49,6 @@ func doubleValue(x int) int {
 	return x * 2
 }
 
-func calcPrice(price float64) float64 {
-	return price + (price * vat)
+func calcPrice(p float64) float64 {
+	return p + (p * vat)
 }
