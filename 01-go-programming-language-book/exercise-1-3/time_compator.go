@@ -17,7 +17,7 @@ func main() {
 
 	measure("FOR ->", func() {
 		var sink string
-		for range reps {
+		for i := 0; i < reps; i++ {
 			sink = echoWithFor(args)
 		}
 		_ = sink
@@ -25,7 +25,7 @@ func main() {
 
 	measure("RANGE ->", func() {
 		var sink string
-		for range reps {
+		for i := 0; i < reps; i++ {
 			sink = echoWithRange(args)
 		}
 		_ = sink
@@ -33,7 +33,7 @@ func main() {
 
 	measure("IDIOMATIC ->", func() {
 		var sink string
-		for range reps {
+		for i := 0; i < reps; i++ {
 			sink = echo(args)
 		}
 		_ = sink
