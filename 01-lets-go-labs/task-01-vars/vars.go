@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+)
 
 // Constant declaration at the package level using
 // short declaration (type inference)
@@ -29,7 +33,19 @@ func main() {
 	fmt.Printf("Swap: %s, %s!\n", a, b)
 
 	fmt.Printf("Double of your age: %d\n", doubleValue(age))
-	fmt.Printf("Calculated price with VAT (Value Added Tax): %.2f", calcPrice(price))
+	fmt.Printf("Calculated price with VAT (Value Added Tax): %.2f\n", calcPrice(price))
+
+	arr := []string{"Joel", "Ellie", "Tess", "Tommy", "Bill"}
+
+	fmt.Printf("Array before swapArr: %s\n", strings.Join(arr, ", "))
+	fmt.Printf("Array after swapArr: %s\n", strings.Join(swapArr(arr), ", "))
+
+	data, err := json.MarshalIndent(arr, "", "  ")
+	if err != nil {
+		fmt.Println("Error generating JSON: ", err)
+	}
+
+	fmt.Println(string(data))
 }
 
 // Swap: switches the order of the provided values
@@ -51,4 +67,21 @@ func doubleValue(x int) int {
 
 func calcPrice(p float64) float64 {
 	return p + (p * vat)
+}
+
+func swapArr(a []string) []string {
+	n := len(a)
+
+	// Border Case
+	if n == 0 || n == 1 {
+		return a
+	}
+
+	b := make([]string, n)
+
+	for i := range n {
+		b[i] = a[n-1-i]
+	}
+
+	return b
 }
