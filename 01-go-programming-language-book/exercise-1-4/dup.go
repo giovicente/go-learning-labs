@@ -48,7 +48,7 @@ func countLines(f *os.File, filename string, counts map[string]map[string]int) {
 		if counts[line] == nil {
 			counts[line] = make(map[string]int)
 		}
-		counts[input.Text()][filename]++
+		counts[line][filename]++
 	}
 	if err := input.Err(); err != nil {
 		fmt.Fprintf(os.Stderr, "Read error (%s): %v\n", filename, err)
