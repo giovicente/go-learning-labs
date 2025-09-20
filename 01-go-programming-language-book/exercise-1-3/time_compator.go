@@ -10,10 +10,12 @@ import (
 	"time"
 )
 
-const reps = 10000
+const reps = 10000000
 
 func main() {
 	args := os.Args[1:]
+
+	printTitle()
 
 	measure("FOR ->", func() {
 		var sink string
@@ -40,12 +42,16 @@ func main() {
 	})
 }
 
+func printTitle() {
+	fmt.Printf("=== LOOP TIME BENCHMARK IN MICROSSECONDS ===\n")
+}
+
 func measure(label string, fn func()) {
 	start := time.Now()
 	fn()
-	secs := time.Since(start).Seconds()
+	ms := time.Since(start).Microseconds()
 
-	fmt.Printf("%s %.2fs\n", label, secs)
+	fmt.Printf("%s %dμs\n", label, ms)
 }
 
 func echoWithFor(args []string) string {
