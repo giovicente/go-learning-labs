@@ -13,16 +13,16 @@ import (
 
 var pallete = []color.Color{
 	color.White,
-	color.RGBA{0, 32, 128, 255},
-	color.RGBA{255, 140, 0, 255},
-	color.RGBA{255, 215, 0, 255},
+	color.RGBA{12, 177, 205, 255},
+	color.RGBA{255, 108, 0, 255},
+	color.RGBA{255, 209, 1, 255},
 }
 
 const (
-	whiteIndex    = 0
-	darkBlueIndex = 1
-	orangeIndex   = 2
-	yelloyIndex   = 3
+	whiteIndex     = 0
+	acquaBlueIndex = 1
+	orangeIndex    = 2
+	yelloyIndex    = 3
 )
 
 func main() {
