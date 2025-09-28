@@ -48,8 +48,7 @@ func fetch(url string, ch chan<- string) {
 		return
 	}
 
-	var nbytes int64
-	nbytes, err = io.Copy(&buf, resp.Body)
+	nbytes, err := io.Copy(&buf, resp.Body)
 	resp.Body.Close()
 	if err != nil {
 		ch <- fmt.Sprintf("while reading %s: %v", url, err)

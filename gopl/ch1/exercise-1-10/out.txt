@@ -1,3 +1,3 @@
-0.07s     859 https://brasilapi.com.br/api/feriados/v1/2024
-0.29s   42224 https://www.naughtydog.com/
-1.12s    4154 http://gopl.io
+0.16s     859 https://brasilapi.com.br/api/feriados/v1/2024
+0.49s   42224 https://www.naughtydog.com/
+1.23s    4154 http://gopl.io
